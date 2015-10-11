@@ -1,2 +1,89 @@
 ---
 # tasks file for powerdns
+
+- name: Include distribution specific variables
+  include_vars: "{{ ansible_distribution }}.yml"
+  tags: powerdns
+
+- include: CentOS.yml
+  when: ansible_distribution == "CentOS"
+  tags: powerdns
+
+- include: Ubuntu.yml
+  when: ansible_distribution == "Ubuntu"
+  tags: powerdns
+
+- name: Create PowerDNS authoritative server default file
+  template: >
+    src=pdns.default.j2
+    dest=/etc/default/pdns
+    owner=root
+    group=root
+    mode=0644
+  notify: restart powerdns
+  when: powerdns_server
+  tags:
+    - powerdns
+    - authoritative
+
+- name: Create PowerDNS authoritative BIND backend configuration file
+  template: >
+    src=bindbackend.conf.j2
+    dest={{ powerdns_server_config_dir }}/bindbackend.conf
+    owner=root
+    group=root
+    mode=0644
+  notify: reload powerdns
+  tags:
+    - powerdns
+    - authoritative
+
+- name: Create PowerDNS authoritative server configuration file
+  template: >
+    src=pdns.conf.j2
+    dest={{ powerdns_server_config_dir }}/pdns.conf
+    owner=root
+    group=root
+    mode=0600
+  notify: reload powerdns
+  tags:
+    - powerdns
+    - authoritative
+
+- name: Create PowerDNS authoritative local configuration file
+  template: >
+    src=pdns.local.conf.j2
+    dest={{ powerdns_server_include_dir }}/pdns.local.conf
+    owner=root
+    group=root
+    mode=0600
+  notify: reload powerdns
+  tags:
+    - powerdns
+    - authoritative
+
+- name: Create PowerDNS authoritative simplebind configuration file
+  template: >
+    src=pdns.simplebind.conf.j2
+    dest={{ powerdns_server_include_dir }}/pdns.simplebind.conf
+    owner=root
+    group=root
+    mode=0644
+  notify: reload powerdns
+  tags:
+    - powerdns
+    - authoritative
+
+- name: Ensure PowerDNS authoritative service is started and enabled on boot
+  service: name={{ powerdns_server_service_name }} state=started enabled=yes
+  when: powerdns_server
+  tags:
+    - powerdns
+    - authoritative
+
+- name: Ensure PowerDNS recursor service is started and enabled on boot
+  service: name={{ powerdns_recursor_service_name }} state=started enabled=yes
+  when: powerdns_recursor
+  tags:
+    - powerdns
+    - recursor

@@ -1,0 +1,11 @@
+---
+# vars file for powerdns (Ubuntu specific)
+
+powerdns_server_packages:
+  - pdns-server
+powerdns_recursor_packages:
+  - pdns-recursor
+powerdns_server_service_name: pdns
+powerdns_recursor_service_name: pdns-recursor
+powerdns_server_config_dir: /etc/powerdns
+powerdns_server_include_dir: "{{ powerdns_server_config_dir }}/pdns.d"

@@ -1,2 +1,26 @@
 ---
 # handlers file for powerdns
+
+- name: restart powerdns
+  service: name={{ powerdns_server_service_name }} state=restarted
+  tags:
+    - powerdns
+    - authoritative
+
+- name: reload powerdns
+  service: name={{ powerdns_server_service_name }} state=reloaded
+  tags:
+    - powerdns
+    - authoritative
+
+- name: restart powerdns recursor
+  service: name={{ powerdns_recursor_service_name }} state=restarted
+  tags:
+    - powerdns
+    - recursor
+
+- name: reload powerdns recursor
+  service: name={{ powerdns_recursor_service_name }} state=reloaded
+  tags:
+    - powerdns
+    - recursor

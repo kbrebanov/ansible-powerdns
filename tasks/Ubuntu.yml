@@ -1,0 +1,18 @@
+---
+# tasks file for powerdns (Ubuntu specific)
+
+- name: Install PowerDNS authoritative server
+  apt: name={{ item }} state=present update_cache=yes
+  with_items: powerdns_server_packages
+  when: powerdns_server
+  tags:
+    - powerdns
+    - authoritative
+
+- name: Install PowerDNS recursor
+  apt: name={{ item }} state=present update_cache=yes
+  with_items: powerdns_recursor_packages
+  when: powerdns_recursor
+  tags:
+    - powerdns
+    - recursor

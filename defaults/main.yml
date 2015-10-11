@@ -1,2 +1,5 @@
 ---
 # defaults file for powerdns
+
+powerdns_server: true
+powerdns_recursor: false
