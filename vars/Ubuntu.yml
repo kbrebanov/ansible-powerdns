@@ -6,6 +6,10 @@ powerdns_authoritative_packages:
 powerdns_authoritative_service_name: pdns
 powerdns_authoritative_config_dir: /etc/powerdns
 powerdns_authoritative_include_dir: "{{ powerdns_authoritative_config_dir }}/pdns.d"
+powerdns_authoritative_module_dir: ''
+powerdns_authoritative_user: pdns
+powerdns_authoritative_group: pdns
+powerdns_authoritative_socket_dir: /var/run/
 
 powerdns_recursor_packages:
   - pdns-recursor={{ powerdns_recursor_version }}*
