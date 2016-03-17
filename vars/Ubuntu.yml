@@ -2,10 +2,16 @@
 # vars file for powerdns (Ubuntu specific)
 
 powerdns_server_packages:
-  - pdns-server
+  - pdns-server={{ powerdns_server_version }}*
 powerdns_recursor_packages:
-  - pdns-recursor
+  - pdns-recursor={{ powerdns_recursor_version }}*
 powerdns_server_service_name: pdns
 powerdns_recursor_service_name: pdns-recursor
 powerdns_server_config_dir: /etc/powerdns
 powerdns_server_include_dir: "{{ powerdns_server_config_dir }}/pdns.d"
+powerdns_recursor_user: pdns
+powerdns_recursor_group: pdns
+powerdns_recursor_socket_dir: /var/run/
+powerdns_recursor_socket_owner: root
+powerdns_recursor_socket_group: "{{ powerdns_recursor_group }}"
+powerdns_recursor_socket_mode: 755

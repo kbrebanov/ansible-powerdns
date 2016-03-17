@@ -2,4 +2,111 @@
 # defaults file for powerdns
 
 powerdns_server: true
+powerdns_server_version: 4.0
+
 powerdns_recursor: false
+powerdns_recursor_version: 4.0
+
+powerdns_recursor_allow_from:
+  - 127.0.0.0/8
+  - 10.0.0.0/8
+  - 192.168.0.0/16
+  - 172.16.0.0/12
+  - ::1/128
+  - fe80::/10
+powerdns_recursor_allow_from_file: ''
+powerdns_recursor_any_to_tcp: false
+powerdns_recursor_api_config_dir: ''
+powerdns_recursor_api_key: ''
+powerdns_recursor_api_logfile: ''
+powerdns_recursor_api_readonly: false
+powerdns_recursor_auth_zones: []
+powerdns_recursor_carbon_interval: 30
+powerdns_recursor_carbon_ourname: ''
+powerdns_recursor_carbon_server: ''
+powerdns_recursor_chroot: ''
+powerdns_recursor_client_tcp_timeout: 2
+powerdns_recursor_config_name: ''
+powerdns_recursor_daemon: false
+powerdns_recursor_delegation_only: []
+powerdns_recursor_disable_packetcache: false
+powerdns_recursor_dnssec: 'off'
+powerdns_recursor_dont_query:
+  - 127.0.0.0/8
+  - 10.0.0.0/8
+  - 100.64.0.0/10
+  - 169.254.0.0/16
+  - 192.168.0.0/16
+  - 172.16.0.0/12
+  - ::1/128
+  - fc00::/7
+  - fe80::/10
+  - 0.0.0.0/8
+  - 192.0.0.0/24
+  - 192.0.2.0/24
+  - 198.51.100.0/24
+  - 203.0.113.0/24
+  - 240.0.0.0/4
+  - ::/96
+  - ::ffff:0:0/96
+  - 100::/64
+  - 2001:db8::/32
+powerdns_recursor_entropy_source: /dev/urandom
+powerdns_recursor_etc_hosts_file: /etc/hosts
+powerdns_recursor_export_etc_hosts: false
+powerdns_recursor_export_etc_hosts_search_suffix: ''
+powerdns_recursor_forward_zones: []
+powerdns_recursor_forward_zones_file: ''
+powerdns_recursor_forward_zones_recurse: []
+powerdns_recursor_hint_file: ''
+powerdns_recursor_latency_statistic_size: 10000
+powerdns_recursor_local_address:
+  - 127.0.0.1
+powerdns_recursor_local_port: 53
+powerdns_recursor_loglevel: 4
+powerdns_recursor_log_common_errors: false
+powerdns_recursor_logging_facility: 0
+powerdns_recursor_lua_config_file: ''
+powerdns_recursor_lua_dns_script: ''
+powerdns_recursor_max_cache_entries: 1000000
+powerdns_recursor_max_cache_ttl: 86400
+powerdns_recursor_max_mthreads: 2048
+powerdns_recursor_max_negative_ttl: 3600
+powerdns_recursor_max_packetcache_entries: 500000
+powerdns_recursor_max_qperq: 50
+powerdns_recursor_max_tcp_clients: 128
+powerdns_recursor_max_tcp_per_client: 0
+powerdns_recursor_max_total_msec: 7000
+powerdns_recursor_minimum_ttl_override: 0
+powerdns_recursor_network_timeout: 1500
+powerdns_recursor_non_local_bind: false
+powerdns_recursor_packetcache_servfail_ttl: 60
+powerdns_recursor_packetcache_ttl: 3600
+powerdns_recursor_pdns_distributes_queries: true
+powerdns_recursor_query_local_address:
+  - 0.0.0.0
+powerdns_recursor_query_local_address6: []
+powerdns_recursor_quiet: true
+powerdns_recursor_root_nx_trust: false
+powerdns_recursor_security_poll_suffix: secpoll.powerdns.com.
+powerdns_recursor_serve_rfc1918: true
+powerdns_recursor_server_down_max_fails: 64
+powerdns_recursor_server_down_throttle_time: 60
+powerdns_recursor_server_id: ''
+powerdns_recursor_single_socket: false
+powerdns_recursor_spoof_nearmiss_max: 20
+powerdns_recursor_stack_size: 200000
+powerdns_recursor_stats_ringbuffer_entries: 10000
+powerdns_recursor_threads: 2
+powerdns_recursor_trace: false
+powerdns_recursor_udp_truncation_threshold: 1680
+powerdns_recursor_version_string: "PowerDNS Recursor {{ powerdns_recursor_version }}"
+powerdns_recursor_webserver: false
+powerdns_recursor_webserver_address:
+  - 127.0.0.1
+powerdns_recursor_webserver_allow_from:
+  - 0.0.0.0
+  - ::/0
+powerdns_recursor_webserver_password: ''
+powerdns_recursor_webserver_port: 8082
+powerdns_recursor_write_pid: true

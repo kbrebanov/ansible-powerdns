@@ -1,6 +1,34 @@
 ---
 # tasks file for powerdns (Ubuntu specific)
 
+- name: Install PowerDNS PGP key
+  become: yes
+  apt_key:
+    url: https://repo.powerdns.com/FD380FBB-pub.asc
+    state: present
+  tags:
+    - powerdns
+
+- name: Add PowerDNS 4.0.x authoritative server repo
+  become: yes
+  apt_repository:
+    repo: 'deb [arch=amd64] http://repo.powerdns.com/ubuntu trusty-auth-40 main'
+    state: present
+  when: powerdns_server and powerdns_server_version == 4.0
+  tags:
+    - powerdns
+    - authoritative
+
+- name: Add PowerDNS 4.0.x recursor repo
+  become: yes
+  apt_repository:
+    repo: 'deb [arch=amd64] http://repo.powerdns.com/ubuntu trusty-rec-40 main'
+    state: present
+  when: powerdns_recursor and powerdns_recursor_version == 4.0
+  tags:
+    - powerdns
+    - recursor
+
 - name: Install PowerDNS authoritative server
   become: yes
   apt:
