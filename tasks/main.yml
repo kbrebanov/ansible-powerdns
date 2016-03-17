@@ -91,6 +91,21 @@
     - powerdns
     - authoritative
 
+- name: Create PowerDNS Mysql backend configuration file
+  become: yes
+  template:
+    src: gmysqlbackend.conf.j2
+    dest: "{{ powerdns_authoritative_config_dir }}/gmysqlbackend.conf"
+    owner: root
+    group: root
+    mode: 0640
+  notify:
+    - restart powerdns authoritative
+  when: powerdns_authoritative and 'gmysql' in powerdns_authoritative_launch
+  tags:
+    - powerdns
+    - authoritative
+
 - name: Create PowerDNS recursor configuration file
   become: yes
   template:

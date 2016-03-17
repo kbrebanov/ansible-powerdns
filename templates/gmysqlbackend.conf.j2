@@ -1,0 +1,23 @@
+# {{ ansible_managed }}
+
+{% if powerdns_backend_generic_mysql_host %}
+gmysql-host={{ powerdns_backend_generic_mysql_host }}
+{% endif %}
+gmysql-port={{ powerdns_backend_generic_mysql_port }}
+{% if powerdns_backend_generic_mysql_socket %}
+gmysql-socket={{ powerdns_backend_generic_mysql_socket }}
+{% endif %}
+gmysql-dbname={{ powerdns_backend_generic_mysql_dbname }}
+gmysql-user={{ powerdns_backend_generic_mysql_user }}
+gmysql-group={{ powerdns_backend_generic_mysql_group }}
+gmysql-password={{ powerdns_backend_generic_mysql_password }}
+{% if powerdns_backend_generic_mysql_dnssec %}
+gmysql-dnssec=yes
+{% else %}
+gmysql-dnssec=no
+{% endif %}
+{% if powerdns_backend_generic_mysql_innodb_read_commited %}
+gmysql-innodb-read-commited=yes
+{% else %}
+gmysql-innodb-read-commited=no
+{% endif %}

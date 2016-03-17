@@ -216,3 +216,13 @@ powerdns_recursor_webserver_allow_from:
 powerdns_recursor_webserver_password: ''
 powerdns_recursor_webserver_port: 8082
 powerdns_recursor_write_pid: true
+
+powerdns_backend_generic_mysql_host: ''
+powerdns_backend_generic_mysql_port: 3306
+powerdns_backend_generic_mysql_socket: ''
+powerdns_backend_generic_mysql_dbname: pdns
+powerdns_backend_generic_mysql_user: powerdns
+powerdns_backend_generic_mysql_group: client
+powerdns_backend_generic_mysql_password: pdns
+powerdns_backend_generic_mysql_dnssec: false
+powerdns_backend_generic_mysql_innodb_read_commited: true
