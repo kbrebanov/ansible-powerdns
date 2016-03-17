@@ -226,3 +226,7 @@ powerdns_backend_generic_mysql_group: client
 powerdns_backend_generic_mysql_password: pdns
 powerdns_backend_generic_mysql_dnssec: false
 powerdns_backend_generic_mysql_innodb_read_commited: true
+
+powerdns_backend_generic_odbc_datasource: PowerDNS
+powerdns_backend_generic_odbc_username: powerdns
+powerdns_backend_generic_odbc_password: ''
