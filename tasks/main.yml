@@ -121,6 +121,21 @@
     - powerdns
     - authoritative
 
+- name: Create PowerDNS Oracle backend configuration file
+  become: yes
+  template:
+    src: goraclebackend.conf.j2
+    dest: "{{ powerdns_authoritative_config_dir }}/goraclebackend.conf"
+    owner: root
+    group: root
+    mode: 0640
+  notify:
+    - restart powerdns authoritative
+  when: powerdns_authoritative and 'goracle' in powerdns_authoritative_launch
+  tags:
+    - powerdns
+    - authoritative
+
 - name: Create PowerDNS recursor configuration file
   become: yes
   template:

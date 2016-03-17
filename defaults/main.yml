@@ -230,3 +230,6 @@ powerdns_backend_generic_mysql_innodb_read_commited: true
 powerdns_backend_generic_odbc_datasource: PowerDNS
 powerdns_backend_generic_odbc_username: powerdns
 powerdns_backend_generic_odbc_password: ''
+
+powerdns_backend_generic_oracle_tnsname: ''
+powerdns_backend_generic_oracle_dnssec: false

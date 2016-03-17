@@ -1,0 +1,8 @@
+# {{ ansible_managed }}
+
+goracle-tnsname={{ powerdns_backend_generic_oracle_tnsname }}
+{% if powerdns_backend_generic_oracle_dnssec %}
+goracle-dnssec=yes
+{% else %}
+goracle-dnssec=no
+{% endif %}
