@@ -40,7 +40,7 @@
     group: root
     mode: 0644
   notify:
-    - reload powerdns
+    - restart powerdns
   when: powerdns_server
   tags:
     - powerdns
@@ -55,7 +55,7 @@
     group: root
     mode: 0600
   notify:
-    - reload powerdns
+    - restart powerdns
   when: powerdns_server
   tags:
     - powerdns
@@ -70,7 +70,7 @@
     group: root
     mode: 0600
   notify:
-    - reload powerdns
+    - restart powerdns
   when: powerdns_server
   tags:
     - powerdns
@@ -85,7 +85,7 @@
     group: root
     mode: 0644
   notify:
-    - reload powerdns
+    - restart powerdns
   when: powerdns_server
   tags:
     - powerdns
@@ -100,7 +100,7 @@
     group: root
     mode: 0644
   notify:
-    - reload powerdns recursor
+    - restart powerdns recursor
   when: powerdns_recursor
   tags:
     - powerdns
