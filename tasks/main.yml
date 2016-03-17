@@ -25,8 +25,8 @@
     group: root
     mode: 0644
   notify:
-    - restart powerdns
-  when: powerdns_server
+    - restart powerdns authoritative
+  when: powerdns_authoritative
   tags:
     - powerdns
     - authoritative
@@ -35,13 +35,13 @@
   become: yes
   template:
     src: bindbackend.conf.j2
-    dest: "{{ powerdns_server_config_dir }}/bindbackend.conf"
+    dest: "{{ powerdns_authoritative_config_dir }}/bindbackend.conf"
     owner: root
     group: root
     mode: 0644
   notify:
-    - restart powerdns
-  when: powerdns_server
+    - restart powerdns authoritative
+  when: powerdns_authoritative
   tags:
     - powerdns
     - authoritative
@@ -50,13 +50,13 @@
   become: yes
   template:
     src: pdns.conf.j2
-    dest: "{{ powerdns_server_config_dir }}/pdns.conf"
+    dest: "{{ powerdns_authoritative_config_dir }}/pdns.conf"
     owner: root
     group: root
     mode: 0600
   notify:
-    - restart powerdns
-  when: powerdns_server
+    - restart powerdns authoritative
+  when: powerdns_authoritative
   tags:
     - powerdns
     - authoritative
@@ -65,13 +65,13 @@
   become: yes
   template:
     src: pdns.local.conf.j2
-    dest: "{{ powerdns_server_include_dir }}/pdns.local.conf"
+    dest: "{{ powerdns_authoritative_include_dir }}/pdns.local.conf"
     owner: root
     group: root
     mode: 0600
   notify:
-    - restart powerdns
-  when: powerdns_server
+    - restart powerdns authoritative
+  when: powerdns_authoritative
   tags:
     - powerdns
     - authoritative
@@ -80,13 +80,13 @@
   become: yes
   template:
     src: pdns.simplebind.conf.j2
-    dest: "{{ powerdns_server_include_dir }}/pdns.simplebind.conf"
+    dest: "{{ powerdns_authoritative_include_dir }}/pdns.simplebind.conf"
     owner: root
     group: root
     mode: 0644
   notify:
-    - restart powerdns
-  when: powerdns_server
+    - restart powerdns authoritative
+  when: powerdns_authoritative
   tags:
     - powerdns
     - authoritative
@@ -95,7 +95,7 @@
   become: yes
   template:
     src: recursor.conf.j2
-    dest: "{{ powerdns_server_config_dir }}/recursor.conf"
+    dest: "{{ powerdns_recursor_config_dir }}/recursor.conf"
     owner: root
     group: root
     mode: 0644
@@ -109,10 +109,10 @@
 - name: Ensure PowerDNS authoritative service is started and enabled on boot
   become: yes
   service:
-    name: "{{ powerdns_server_service_name }}"
+    name: "{{ powerdns_authoritative_service_name }}"
     state: started
     enabled: yes
-  when: powerdns_server
+  when: powerdns_authoritative
   tags:
     - powerdns
     - authoritative

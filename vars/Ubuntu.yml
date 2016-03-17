@@ -1,14 +1,16 @@
 ---
 # vars file for powerdns (Ubuntu specific)
 
-powerdns_server_packages:
-  - pdns-server={{ powerdns_server_version }}*
+powerdns_authoritative_packages:
+  - pdns-server={{ powerdns_authoritative_version }}*
+powerdns_authoritative_service_name: pdns
+powerdns_authoritative_config_dir: /etc/powerdns
+powerdns_authoritative_include_dir: "{{ powerdns_authoritative_config_dir }}/pdns.d"
+
 powerdns_recursor_packages:
   - pdns-recursor={{ powerdns_recursor_version }}*
-powerdns_server_service_name: pdns
 powerdns_recursor_service_name: pdns-recursor
-powerdns_server_config_dir: /etc/powerdns
-powerdns_server_include_dir: "{{ powerdns_server_config_dir }}/pdns.d"
+powerdns_recursor_config_dir: /etc/powerdns
 powerdns_recursor_user: pdns
 powerdns_recursor_group: pdns
 powerdns_recursor_socket_dir: /var/run/

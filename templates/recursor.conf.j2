@@ -37,7 +37,7 @@ carbon-server={{ powerdns_recursor_carbon_server }}
 chroot={{ powerdns_recursor_chroot }}
 {% endif %}
 client-tcp-timeout={{ powerdns_recursor_client_tcp_timeout }}
-config-dir={{ powerdns_server_config_dir }}
+config-dir={{ powerdns_recursor_config_dir }}
 {% if powerdns_recursor_config_name %}
 config-name={{ powerdns_recursor_config_name }}
 {% endif %}

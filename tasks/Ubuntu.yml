@@ -9,12 +9,12 @@
   tags:
     - powerdns
 
-- name: Add PowerDNS 4.0.x authoritative server repo
+- name: Add PowerDNS 4.0.x authoritative repo
   become: yes
   apt_repository:
     repo: 'deb [arch=amd64] http://repo.powerdns.com/ubuntu trusty-auth-40 main'
     state: present
-  when: powerdns_server and powerdns_server_version == 4.0
+  when: powerdns_authoritative and powerdns_authoritative_version == 4.0
   tags:
     - powerdns
     - authoritative
@@ -29,15 +29,15 @@
     - powerdns
     - recursor
 
-- name: Install PowerDNS authoritative server
+- name: Install PowerDNS authoritative
   become: yes
   apt:
     name: "{{ item }}"
     state: present
     update_cache: yes
   with_items:
-    - "{{ powerdns_server_packages }}"
-  when: powerdns_server
+    - "{{ powerdns_authoritative_packages }}"
+  when: powerdns_authoritative
   tags:
     - powerdns
     - authoritative

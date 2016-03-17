@@ -1,8 +1,8 @@
 ---
 # defaults file for powerdns
 
-powerdns_server: true
-powerdns_server_version: 4.0
+powerdns_authoritative: true
+powerdns_authoritative_version: 4.0
 
 powerdns_recursor: false
 powerdns_recursor_version: 4.0
