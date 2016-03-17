@@ -136,6 +136,21 @@
     - powerdns
     - authoritative
 
+- name: Create PowerDNS PostgreSQL backend configuration file
+  become: yes
+  template:
+    src: gpgsqlbackend.conf.j2
+    dest: "{{ powerdns_authoritative_config_dir }}/gpgsqlbackend.conf"
+    owner: root
+    group: root
+    mode: 0640
+  notify:
+    - restart powerdns authoritative
+  when: powerdns_authoritative and 'gpgsql' in powerdns_authoritative_launch
+  tags:
+    - powerdns
+    - authoritative
+
 - name: Create PowerDNS recursor configuration file
   become: yes
   template:

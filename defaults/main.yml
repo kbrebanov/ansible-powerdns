@@ -233,3 +233,10 @@ powerdns_backend_generic_odbc_password: ''
 
 powerdns_backend_generic_oracle_tnsname: ''
 powerdns_backend_generic_oracle_dnssec: false
+
+powerdns_backend_generic_postgresql_host: ''
+powerdns_backend_generic_postgresql_port: 5432
+powerdns_backend_generic_postgresql_dbname: pdns
+powerdns_backend_generic_postgresql_user: powerdns
+powerdns_backend_generic_postgresql_password: powerdns
+powerdns_backend_generic_postgresql_dnssec: false

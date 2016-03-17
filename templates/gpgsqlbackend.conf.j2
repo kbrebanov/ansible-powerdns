@@ -1,0 +1,12 @@
+# {{ ansible_managed }}
+
+gpgsql-host={{ powerdns_backend_generic_postgresql_host }}
+gpgsql-port={{ powerdns_backend_generic_postgresql_port }}
+gpgsql-dbname={{ powerdns_backend_generic_postgresql_dbname }}
+gpgsql-user={{ powerdns_backend_generic_postgresql_user }}
+gpgsql-password={{ powerdns_backend_generic_postgresql_password }}
+{% if powerdns_backend_generic_postgresql_dnssec %}
+gpgsql-dnssec=yes
+{% else %}
+gpgsql-dnssec=no
+{% endif %}
