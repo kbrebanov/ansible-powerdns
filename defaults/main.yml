@@ -47,7 +47,6 @@ powerdns_authoritative_dnsupdate: false
 powerdns_authoritative_do_ipv6_additional_processing: true
 powerdns_authoritative_edns_subnet_processing: false
 powerdns_authoritative_entropy_source: /dev/urandom
-powerdns_authoritative_forward_dnsupdates: false
 powerdns_authoritative_guardian: false
 powerdns_authoritative_launch: []
 powerdns_authoritative_load_modules: []
@@ -69,7 +68,6 @@ powerdns_authoritative_max_cache_entries: 1000000
 powerdns_authoritative_max_ent_entries: 100000
 powerdns_authoritative_max_nsec3_iterations: 500
 powerdns_authoritative_max_queue_length: 5000
-#powerdns_authoritative_max_signature_cache_entries:
 powerdns_authoritative_max_tcp_connections: 10
 powerdns_authoritative_negquery_cache_ttl: 60
 powerdns_authoritative_no_config: false
@@ -99,7 +97,6 @@ powerdns_authoritative_soa_expire_default: 604800
 powerdns_authoritative_soa_minimum_ttl: 3600
 powerdns_authoritative_soa_refresh_default: 10800
 powerdns_authoritative_soa_retry_default: 3600
-powerdns_authoritative_strict_rfc_axfrs: false
 powerdns_authoritative_tcp_control_address: ''
 powerdns_authoritative_tcp_control_port: 53000
 powerdns_authoritative_tcp_control_range: []
