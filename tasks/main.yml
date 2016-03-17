@@ -91,6 +91,21 @@
     - powerdns
     - authoritative
 
+- name: Create PowerDNS recursor configuration file
+  become: yes
+  template:
+    src: recursor.conf.j2
+    dest: "{{ powerdns_server_config_dir }}/recursor.conf"
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - reload powerdns recursor
+  when: powerdns_recursor
+  tags:
+    - powerdns
+    - recursor
+
 - name: Ensure PowerDNS authoritative service is started and enabled on boot
   become: yes
   service:
