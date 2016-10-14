@@ -12,9 +12,9 @@
 - name: Add PowerDNS 4.0.x authoritative repo
   become: yes
   apt_repository:
-    repo: 'deb [arch=amd64] http://repo.powerdns.com/ubuntu trusty-auth-40 main'
+    repo: 'deb [arch=amd64] http://repo.powerdns.com/ubuntu {{ ansible_distribution_release|lower }}-auth-40 main'
     state: present
-  when: powerdns_authoritative and powerdns_authoritative_version == 4.0
+  when: powerdns_authoritative and powerdns_authoritative_version | version_compare('4.0', '>=')
   tags:
     - powerdns
     - authoritative
@@ -22,9 +22,9 @@
 - name: Add PowerDNS 4.0.x recursor repo
   become: yes
   apt_repository:
-    repo: 'deb [arch=amd64] http://repo.powerdns.com/ubuntu trusty-rec-40 main'
+    repo: 'deb [arch=amd64] http://repo.powerdns.com/ubuntu {{ ansible_distribution_release|lower }}-rec-40 main'
     state: present
-  when: powerdns_recursor and powerdns_recursor_version == 4.0
+  when: powerdns_recursor and powerdns_recursor_version | version_compare('4.0', '>=')
   tags:
     - powerdns
     - recursor
