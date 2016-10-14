@@ -14,7 +14,7 @@
   apt_repository:
     repo: 'deb [arch=amd64] http://repo.powerdns.com/ubuntu {{ ansible_distribution_release|lower }}-auth-40 main'
     state: present
-  when: powerdns_authoritative and powerdns_authoritative_version | version_compare('4.0', '>=')
+  when: powerdns_authoritative and powerdns_authoritative_version|string|version_compare('4.0', '>=')
   tags:
     - powerdns
     - authoritative
@@ -24,7 +24,7 @@
   apt_repository:
     repo: 'deb [arch=amd64] http://repo.powerdns.com/ubuntu {{ ansible_distribution_release|lower }}-rec-40 main'
     state: present
-  when: powerdns_recursor and powerdns_recursor_version | version_compare('4.0', '>=')
+  when: powerdns_recursor and powerdns_recursor_version|string|version_compare('4.0', '>=')
   tags:
     - powerdns
     - recursor
