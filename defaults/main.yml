@@ -2,10 +2,10 @@
 # defaults file for powerdns
 
 powerdns_authoritative: true
-powerdns_authoritative_version: 4.0.2
+powerdns_authoritative_version: 4.0.3
 
 powerdns_recursor: false
-powerdns_recursor_version: 4.0.4
+powerdns_recursor_version: 4.0.5
 
 powerdns_authoritative_allow_axfr_ips:
   - 127.0.0.0/8
